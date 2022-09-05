@@ -43,6 +43,5 @@ class NanoidGenerator
 
 
         return $id;
-        // dd($this->size, $this->prefix, $this->timestamp);
     }
 }
