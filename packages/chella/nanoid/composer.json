@@ -1,0 +1,26 @@
+{
+    "name": "chella/nanoid",
+    "description": "Generating nano id for laravel",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Chella\\Nanoid\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Chella",
+            "email": "mchellamuthu@live.com"
+        }
+    ],
+    "require": {
+        "hidehalo/nanoid-php": "^1.1"
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "Chella\\Nanoid\\NanoIdServiceProvider"
+            ]
+        }
+    }
+}

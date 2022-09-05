@@ -3,13 +3,23 @@
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
+    "repositories": {
+        "nanoid":{
+            "type": "path",
+            "url": "packages/chella/nanoid",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "chella/nanoid": "@dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

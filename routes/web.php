@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+use Chella\Nanoid\NanoidGenerator;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Str::getNanoId();
 });
