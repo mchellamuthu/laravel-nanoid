@@ -3,6 +3,7 @@
 namespace Chella\Nanoid\Traits;
 
 use Illuminate\Support\Str;
+use Illuminate\Database\Schema\Blueprint;
 
 trait HasNanoID
 {
@@ -14,7 +15,7 @@ trait HasNanoID
         parent::boot();
         static::creating(function ($model) {
             if (empty($model->{$model->getKeyName()})) {
-                $model->{$model->getKeyName()} = Str::getNanoId();
+                $model->{$model->getKeyName()} = Str::generateNanoID();
             }
         });
     }

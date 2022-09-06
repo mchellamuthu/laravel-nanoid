@@ -14,10 +14,8 @@ class NanoIdServiceProvider extends ServiceProvider
             __DIR__ . '/../config/nanoid.php' => config_path('nanoid.php'),
         ]);
 
-        Str::macro('getNanoId', function () {
-            return NanoidGenerator::getNanoId();
-        });
-        Str::macro('generateId', function ($size, $prefix, $seperator, $timestamp) {
+        
+        Str::macro('generateNanoID', function ($size=null, $prefix=null, $seperator=null, $timestamp=false) {
             return NanoidGenerator::generateId($size, $prefix, $seperator, $timestamp);
         });
     }

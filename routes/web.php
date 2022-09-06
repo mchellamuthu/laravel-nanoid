@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return Str::getNanoId();
+    return Str::generateNanoID(12);
 });

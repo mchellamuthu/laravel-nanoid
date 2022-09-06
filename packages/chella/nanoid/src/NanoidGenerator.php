@@ -7,41 +7,17 @@ use Hidehalo\Nanoid\GeneratorInterface;
 
 class NanoidGenerator
 {
-    private static $size;
-    private static $prefix;
-    private static $timestamp;
-    private static $seperator;
 
     private static $alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public function __construct()
+    public static function  generateId($size = null, $prefix = null, $seperator = null, $timestamp = false)
     {
-    }
-
-    public static  function getNanoId()
-    {
-        self::$size = config('nanoid.size');
-
-        self::$prefix = config('nanoid.prefix');
-        self::$timestamp = config('nanoid.timestamp');
-        self::$seperator = config('nanoid.seperator');
-
-        $id = static::generateId(self::$size, self::$prefix, self::$seperator);
-        return $id;
-    }
-    public static function  generateId($size, $prefix = null, $seperator = null, $timestamp = false)
-    {
+        $size = empty($size) ? config('nanoid.size') : $size;
+        $prefix = empty($prefix) ? config('nanoid.prefix') : $prefix;
+        $seperator = empty($seperator) ? config('nanoid.seperator') : $seperator;
         $client = new client();
-        $id = '';
-        if (!empty($prefix)) {
-            $id .= $prefix;
-        }
-        if (!empty($seperator)) {
-            $id .= $seperator;
-        }
-        $id .= $client->formatedId(self::$alphabet, self::$size);
-
-
+        $formatted_id = $client->formatedId(self::$alphabet, $size);
+        $id = $prefix . $seperator . $formatted_id;
         return $id;
     }
 }
